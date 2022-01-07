@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".Activities.ChatActivity">
+    tools:context=".activities.ChatActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -30,7 +30,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                app:src="@drawable/ic_left_arrow" />
+                android:src="@drawable/ic_left_arrow"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile"

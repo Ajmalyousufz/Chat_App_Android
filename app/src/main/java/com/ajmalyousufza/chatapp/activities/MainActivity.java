@@ -4,6 +4,7 @@ package com.ajmalyousufza.chatapp.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,8 @@ import android.widget.Toast;
 
 import com.ajmalyousufza.chatapp.Adapters.TopStatusAdapter;
 import com.ajmalyousufza.chatapp.Adapters.UsersAdapter;
+import com.ajmalyousufza.chatapp.Models.Status;
+import com.ajmalyousufza.chatapp.Models.User;
 import com.ajmalyousufza.chatapp.Models.UserStatus;
 import com.ajmalyousufza.chatapp.R;
 import com.ajmalyousufza.chatapp.databinding.ActivityMainBinding;
@@ -37,7 +40,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.auth.User;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.google.firebase.storage.FirebaseStorage;
@@ -56,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     FirebaseDatabase database;
-    ArrayList<User> users;
+    ArrayList<com.ajmalyousufza.chatapp.Models.User> users;
     UsersAdapter usersAdapter;
     TopStatusAdapter statusAdapter;
     ArrayList<UserStatus> userStatuses;
     ProgressDialog dialog;
 
-    User user;
+    com.ajmalyousufza.chatapp.Models.User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +113,9 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     getSupportActionBar()
                             .setBackgroundDrawable
-                                    (new ColorDrawable(Color.parseColor(toolbarColor)));
+                                   // (new ColorDrawable(Color.parseColor(toolbarColor)));
+                    (new ColorDrawable(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary)));
+
                 }
 
             }
@@ -174,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 users.clear();
                 for(DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    User user = snapshot1.getValue(User.class);
+                    com.ajmalyousufza.chatapp.Models.User user = snapshot1.getValue(com.ajmalyousufza.chatapp.Models.User.class);
                     if(!user.getUid().equals(FirebaseAuth.getInstance().getUid()))
                         users.add(user);
                 }

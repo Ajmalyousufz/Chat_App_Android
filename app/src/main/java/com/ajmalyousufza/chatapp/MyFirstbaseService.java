@@ -14,9 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
+import com.ajmalyousufza.chatapp.activities.MainActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.ajmalyousufza.chatapp.Activities.MainActivity;
+import com.ajmalyousufza.chatapp.activities.MainActivity;
 
 import org.jetbrains.annotations.NotNull;
 

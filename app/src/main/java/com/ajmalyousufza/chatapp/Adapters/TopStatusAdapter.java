@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.ajmalyousufza.chatapp.Activities.MainActivity;
+import com.ajmalyousufza.chatapp.activities.MainActivity;
 import com.ajmalyousufza.chatapp.Models.Status;
 import com.ajmalyousufza.chatapp.Models.User;
 import com.ajmalyousufza.chatapp.Models.UserStatus;
